@@ -1,0 +1,37 @@
+<section class="" id="comments">
+    <div class="row">
+
+        <div *ngFor="let group of CreateBlogData">
+        <div class="card">
+            <div class="card-header">
+                <a href="#" href="javascript:void(0);" (click) = "ViewBlogDetails(group.userID)"><h5 class="media-heading">{{group.title}}</h5></a>
+            </div>
+            <div class="card-block">
+                <div class="row">
+                <div class="col-md-3">
+                    <div class="media"><a class="pull-left" href="#"><img class="media-object rounded-circle img-fluid img-thumbnail col-md-4" src="data:image/jpeg;base64,{{group.filename}}"  alt=""></a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="media-body">
+                       
+                    <p class='ellipsis'>{{group.description}}<a href="javascript: void(0)" >Read more</a></p>
+                    <ul class="list-unstyled list-inline media-detail pull-left">
+                        <li><i class="fa fa-calendar"></i>&nbsp;&nbsp;{{group.createDate | date:'dd-MM-yyyy hh:mm:ss':'UTC'}}  &nbsp;&nbsp;<i class="fa fa-thumbs-up">&nbsp;&nbsp;{{group.countLikes}}</i>  
+                          <i class="fa fa-thumbs-down">&nbsp;&nbsp;{{group.countUnLikes}}</i>  </li>
+                    </ul>
+                  <ul class="list-unstyled list-inline media-detail pull-right">
+                      <li> 
+                        <i class="fa fa-eye">&nbsp;&nbsp;{{group.countViews}}</i>  
+                        <i class="fa fa-comments">&nbsp;&nbsp;{{group.countComments}}</i>  
+                      </li>
+                  </ul>
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+</div>
+</section>
+   

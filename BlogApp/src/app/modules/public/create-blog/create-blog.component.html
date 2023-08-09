@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create Blog</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+     
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Create your Blog here   !!!</p>
+                <form [formGroup]="AddBlogForm" (ngSubmit)="OnCreate()" novalidate autocomplete="off">
+                  
+                    <div class="form-group">
+                        <label for="Title" class="control-label font-weight-bold">Title </label>
+                        <input type="Title" class="form-control" formControlName="Title" placeholder="Blog title"
+                            [ngClass]="{ 'is-valid': (f.Title.dirty || submitted) && !f.Title.errors, 'is-invalid': (f.Title.dirty || submitted) && f.Title.errors }" />
+                        <div class="invalid-feedback">
+                            <span class="text-danger" *ngIf="submitted && handleError('Title', 'required')">
+                              Tile
+                                is
+                                required</span>
+
+
+                        </div>
+
+                    </div>
+
+                   
+
+                    <!-- Blog Details -->
+
+                    <div class="form-group">
+                        <label for="Details" class="control-label font-weight-bold">Details</label>
+                        <textarea type="text" class="form-control" formControlName="Details"
+                        placeholder="Blog Details"
+                        [ngClass]="{ 'is-valid': (f.Details.dirty || submitted) && !f.Details.errors, 'is-invalid': (f.Details.dirty || submitted) && f.Details.errors }"></textarea>
+                        <!-- <input type="text" class="form-control" formControlName="Details"
+                            placeholder="Blog Details"
+                            [ngClass]="{ 'is-valid': (f.Details.dirty || submitted) && !f.Details.errors, 'is-invalid': (f.Details.dirty || submitted) && f.Details.errors }" /> -->
+                        <div class="invalid-feedback">
+                            <span class="text-danger" *ngIf="submitted && handleError('Details', 'required')">Email
+                                Blog details
+                                is
+                                required</span>
+                            <!-- 
+                        <span class="text-danger" *ngif="signupForm.get('email').errors?.email">Email address is not
+                            valid</span> -->
+                        </div>
+
+                    </div>
+
+                    <div class="form-group"> 
+                        <!-- <div class="custom-file-upload"> -->
+                          <label for="file-upload" >
+                            <i class="fa fa-cloud-upload"></i> <span class="ErrorSpan">*&nbsp;</span>Choose File
+                          </label>
+                          <input #fileInput type="file" accept="image/*" id="customFile" (change)="handleFileInput($any($event.target).files)" [disabled]="working">
+                          <!-- <label  for="customFile">{{ uploadFileLabel }}</label> -->
+                         
+                        <!-- </div> -->
+                    </div>
+                    <!-- submit button -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-primary" [disabled]="isWorking"> Add Blog
+                            <!-- <i [attr.class]="isWorking ? 'bi-hourglass-split' : 'bi-check2-square'"></i> {{ isWorking ?
+                            'Working on it...' : 'Create account' }} -->
+                        </button>
+                     
+
+                    </div>
+
+                </form>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+</body>
+
+</html>
